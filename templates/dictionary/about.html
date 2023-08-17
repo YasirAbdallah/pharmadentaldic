@@ -1,0 +1,73 @@
+def drug(request, drug_id):
+    drugs = Drug.objects.all()
+    #drug2s = Drug2.objects.all()
+    #drug3s = Drug3.objects.all()
+    name = None
+    if 'src' in request.GET:
+        name = request.GET['src']
+        if name:
+            drugs = drugs.filter(name2__icontains = name )
+            #drug2s = drug2s.filter(name2__icontains = name )
+            #drug3s = drug3s.filter(name2__icontains = name )
+            
+   
+    context = {
+        'dru':get_object_or_404(Drug, pk=drug_id),
+        'drugs':drugs,
+        #'drug2s':drug2s,
+        #'drug3s':drug3s,
+       
+    }
+    #druginfo = Drug.objects.get
+    #context = {'druginfo':druginfo}
+    return render(request,'dictionary/drug.html', context )
+
+
+
+def drug2(request, drug2_id):
+    #drugs = Drug.objects.all()
+    drug2s = Drug2.objects.all()
+    #drug3s = Drug3.objects.all()
+    name = None
+    if 'src' in request.GET:
+        name = request.GET['src']
+        if name:
+            #drugs = drugs.filter(name2__icontains = name )
+            drug2s = drug2s.filter(name2__icontains = name )
+            #drug3s = drug3s.filter(name2__icontains = name )
+            
+   
+    context = {
+        'dru2':get_object_or_404(Drug2, pk=drug2_id),
+        #'drugs':drugs,
+        'drug2s':drug2s,
+        #'drug3s':drug3s,
+       
+    }
+    #druginfo = Drug.objects.get
+    #context = {'druginfo':druginfo}
+    return render(request,'dictionary/drug2.html', context )
+
+
+
+
+
+
+def search(request):
+    drugs = Drug.objects.all()
+    drug2s = Drug2.objects.all()
+    drug3s = Drug3.objects.all()
+    name = None
+    if 'src' in request.GET:
+        name = request.GET['src']
+        if name:
+            drugs = drugs.filter(name2__icontains = name )
+            drug2s = drug2s.filter(name2__icontains = name )
+            drug3s = drug3s.filter(name2__icontains = name )
+    context = {'drugs':drugs, 'drug2s':drug2s, 'drug3s':drug3s,}
+
+    return render(request,'dictionary/search.html',  context )
+
+
+    {%url 'drug' drug_id=d.id%}
+    {%url 'drug2' drug2_id=d2.id%} 

@@ -1,0 +1,44 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div class="navlist">
+        <a href="#">Contact Us</a>
+		<a href="#">About </a>
+        <form action="{%url 'search'%}" method="GET">
+            <input type="text" placeholder="Search In Drugs" name="src">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+   <div style="margin: 10px; padding:10px">
+    <h1>Drug Details:</h1>
+    <h4>{{dru2.name1}}</h4>
+    <p>{{dru2.name2}}</p>
+    <h4>Description :</h4>
+    <p>{{dru2.description}}</p>
+    <h4>Indication :</h4>
+    <p>{{dru2.indication}}</p>
+    <h4>Presentations :</h4>
+    <p>{{dru2.Presentations}}</p>
+    <h4>Dose :</h4>
+    <p>{{dru2.Dose}}</p>
+    <h4>Contraindications :</h4>
+    <p>{{dru2.Contraindications}}</p>
+    <h4>Precautions :</h4>
+    <p>{{dru2.Precautions}}</p>
+    <h4>Unwanted_effects :</h4>
+    <p>{{dru2.Unwanted_effects}}</p>
+    <h4>drug_interaction :</h4>
+    <p>{{dru2.drug_interaction}}</p>
+  
+   </div>
+    
+</body>
+</html>

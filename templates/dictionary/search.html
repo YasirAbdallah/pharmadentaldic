@@ -1,0 +1,66 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div class="navlist">
+        <a href="#">Contact Us</a>
+		<a href="#">About </a>
+        <form method="GET">
+            <input type="text" placeholder="Search In Drugs" name="src">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+   <div style="margin: 15px; padding:10px">
+    <h2 style="color: blue;">You Can Search IN Any Drug Name  </h2>
+    <h1>-------------------------------------</h1>
+
+    {%for d in drugs %}
+    <h2 style="color: blue;">  {{d.name1}} </h2>
+    <p>{{d.name2}}</p> 
+    <h4>Description:</h4>
+    <p>{{d.description}}</p>
+    <h4>Indication :</h4>
+    <p>{{d.indication}}</p>
+    <h4>Effects on oral and dental tissues :</h4>
+    <p>{{d.effect_on_dental_tissues}}</p>
+    <h4>Effects on patient management :</h4>
+    <p>{{d.effect_on_patient_treatment}}</p>
+    <h4>Drug interactions :</h4>
+    <p>{{d.drug_interaction}}</p> 
+    <h1>-------------------------------------</h1>
+
+    {%endfor%}
+    {%for d2 in drug2s %}
+    <h2 style="color: blue;">  {{d2.name1}} </h2>
+    <p>{{d2.name2}}</p>
+    <h4>Description:</h4>
+    <p>{{d2.description}}</p>  
+    <h4>Indicarions:</h4>
+    <p>{{d2.indication}}</p>  
+    <h4>Presentations :</h4>
+    <p>{{d2.Presentations}}</p>
+    <h4>Dose :</h4>
+    <p>{{d2.Dose}}</p>
+    <h4>Contraindications :</h4>
+    <p>{{d2.Contraindications}}</p>
+    <h4>Precautions :</h4>
+    <p>{{d2.Precautions}}</p>
+    <h4>Unwanted_effects :</h4>
+    <p>{{d2.Unwanted_effects}}</p>
+    <h4>drug_interaction :</h4>
+    <p>{{d2.drug_interaction}}</p>
+    <h1>-------------------------------------</h1>
+    {%endfor%}
+    
+  
+   </div>
+    
+</body>
+</html>
